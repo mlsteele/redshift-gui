@@ -34,7 +34,8 @@ class RedshiftGUI(Tkinter.Frame, object):
         super(RedshiftGUI, self).__init__(parent)
         self.controller = RedshiftController()
         self.controller.apply()
-        self.increment = 1000
+        self.macro_increment = 2000
+        self.micro_increment = 250
 
         # Keyboard shortcuts for quit.
         for keys in ["<Return>", "<Control-q>", "<Control-c>", "<Control-w>"]:
@@ -42,6 +43,8 @@ class RedshiftGUI(Tkinter.Frame, object):
 
         parent.bind("<Up>", lambda *args: self.on_up())
         parent.bind("<Down>", lambda *args: self.on_down())
+        parent.bind("<Left>", lambda *args: self.on_left())
+        parent.bind("<Right>", lambda *args: self.on_right())
 
         self.label_temp = Tkinter.Label(self, text="")
         self.label_temp.grid(sticky=Tkinter.N)
@@ -57,11 +60,19 @@ class RedshiftGUI(Tkinter.Frame, object):
         sys.exit(0)
 
     def on_up(self):
-        self.controller.adjust(self.increment)
+        self.controller.adjust(self.micro_increment)
         self.update()
 
     def on_down(self):
-        self.controller.adjust(-self.increment)
+        self.controller.adjust(-self.micro_increment)
+        self.update()
+
+    def on_left(self):
+        self.controller.adjust(-self.macro_increment)
+        self.update()
+
+    def on_right(self):
+        self.controller.adjust(self.macro_increment)
         self.update()
 
 
