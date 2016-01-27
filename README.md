@@ -3,7 +3,15 @@
 A simple GUI for redshift.
 This GUI has only a few controls and runs redshift in one-shot mode.
 
-- Up arrow to increase temperature.
-- Down arrow to decrease temperature.
-- Space to reset temperature.
-- Enter to quit (does not revert changes).
+To get redshift (on linux) run
+```shell
+sudo apt-get install redshift
+```
+
+Key      | Action
+-------- |-------
+↑        | Increase temperature (bluer) a bit.
+↓        | Decrease temperature (orangier) a bit.
+→        | Increase temperature (bluer) a bit.
+←        | Decrease temperature (orangier) a bit.
+Enter    | Quit. (Does not revert changes.)
