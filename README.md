@@ -8,6 +8,8 @@ To get redshift (on linux) run
 sudo apt-get install redshift
 ```
 
+Run `redshift-gui`. Every time the application is launched, it will reset the temperature.
+
 Key      | Action
 -------- |-------
 ↑        | Increase temperature (bluer) a bit.
